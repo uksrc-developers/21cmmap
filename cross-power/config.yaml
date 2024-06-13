@@ -1,0 +1,14 @@
+# All filepaths in this file must be defined relative to the singularity
+# container.  Meerpower in the def file is mounted to /opt/meerpower.
+# Data are mounted to /data.
+meerpower_path: /opt/meerpower
+survey: '2021'
+filepath_HI: /data/Nscan961_Tsky_cube_p0.3d_sigma4.0_iter2.fits
+gal_cat: gama
+filepath_g: /data/G23TilingCatv11.fits
+Nmock: 500
+mockfilepath_HI: /data/dT_HI_p0.3d_wBeam
+mockfilepath_g: /data/mockGAMAcat
+N_fg: 10
+tukey_alphas: [0.8]
+out_dir: ./output/
