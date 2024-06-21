@@ -94,12 +94,10 @@ The `output/2021Lband/gama/` directory also contains a set of plots in PDF forma
 - [TEAL-518](https://jira.skatelescope.org/browse/TEAL-518): gather data and transfer to azimuth
 - [TEAL-550](https://jira.skatelescope.org/browse/TEAL-550): run cross-power spectrum analysis on azimuth
 
-### Developers and contributors
-
-**Developers**
+### Developers
 
 - [Burba, Jacob](https://github.com/jburba) (Manchester, UKSRC)
 
-**Contributors**
+## Acknowledgements
 
-- [Cunnington, Steven](https://github.com/stevecunnington) (Manchester, MeerKAT)
+Thank you to [Cunnington, Steve](https://github.com/stevecunnington) (Manchester, MeerKAT) for all of your help getting this code up and running.
