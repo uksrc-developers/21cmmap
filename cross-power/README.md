@@ -96,7 +96,7 @@ The `output/2021Lband/gama/` directory also contains a set of plots in PDF forma
 
 ### Developers
 
-- [Burba, Jacob](https://github.com/jburba) (Manchester, UKSRC)
+- [Burba, Jacob](https://github.com/jburba) (Manchester)
 
 ## Acknowledgements
 
