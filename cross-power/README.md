@@ -84,9 +84,9 @@ The `output/2021Lband/gama/` directory also contains a set of plots in PDF forma
 
 ## UKSRC related links and information
 
-### Confluence page
+### Confluence pages
 
-[Cross-Power spectrum estimation using L-band MeerKLASS data](https://confluence.skatelescope.org/display/SRCSC/Cross-Power+Spectrum+Estimation+Using+L-Band+MeerKLASS+Data)
+- [Cross-Power spectrum estimation using L-band MeerKLASS data](https://confluence.skatelescope.org/display/SRCSC/Cross-Power+Spectrum+Estimation+Using+L-Band+MeerKLASS+Data)
 
 ### Jira tickets
 
