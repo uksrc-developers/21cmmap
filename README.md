@@ -13,22 +13,7 @@ Each directory contains a README with more information about the corresponding a
 ## Confluence pages
 
 - [General information about the 21CMMAP demonstrator case](https://confluence.skatelescope.org/display/SRCSC/21CMMAP%3A+Late-time+21cm+Intensity+Mapping+in+Autocorrelation+Mode)
-- [Cross-Power spectrum estimation using L-band MeerKLASS data](https://confluence.skatelescope.org/display/SRCSC/Cross-Power+Spectrum+Estimation+Using+L-Band+MeerKLASS+Data)
-- [On The Fly (OTF) Observing Mode](https://confluence.skatelescope.org/display/SRCSC/21CMMAP%3A+Late-time+21cm+Intensity+Mapping+in+Autocorrelation+Mode)
-
-## Jira tickets
-
-**Cross-power spectrum estimation:**
-
-- [TEAL-517](https://jira.skatelescope.org/browse/TEAL-517): gather software/pipelines
-- [TEAL-518](https://jira.skatelescope.org/browse/TEAL-518): gather data and transfer to azimuth
-- [TEAL-550](https://jira.skatelescope.org/browse/TEAL-550): run cross-power spectrum analysis on azimuth
-
-**OTF observing mode:**
-
-- [TEAL-599](https://jira.skatelescope.org/browse/TEAL-599): gather software/pipelines
-- [TEAL-600](https://jira.skatelescope.org/browse/TEAL-600): gather data and transfer to azimuth
 
 ## Developers
 
-- Burba, Jacob (UoM)
+- [Burba, Jacob](https://github.com/jburba) (Manchester)
