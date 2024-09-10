@@ -5,6 +5,7 @@ This directory contains information and scripts pertaining to the cross-power sp
 For a detailed description of the MeerKAT cross-power spectrum pipeline see
 - [Cunnington+2023a](https://ui.adsabs.harvard.edu/abs/2023MNRAS.518.6262C/abstract): cross-power spectrum detection using MeerKAT and the [WiggleZ](https://wigglez.swin.edu.au/site/forward.html) Dark Energy Survey
 - [Cunnington+2023b](https://ui.adsabs.harvard.edu/abs/2023MNRAS.523.2453C/abstract): "transfer function" validation using simulated data used to estimate power spectrum uncertainties and signal loss
+- [MeerKLASS Collaboration 2024](https://arxiv.org/abs/2407.21626): MeerKLASS collaboration paper detailing the 2021 x GAMA cross-correlation power spectrum work which this repo replicates
 
 The files contained in this repo are as follows
 | File | Description |
