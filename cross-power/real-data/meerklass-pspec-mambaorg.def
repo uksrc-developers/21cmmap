@@ -1,0 +1,31 @@
+bootstrap: docker
+from: mambaorg/micromamba
+
+%environment
+    export SINGULARITY_SHELL=/bin/bash
+    export MEERPOWER_DIR="/opt/meerpower"
+    export MEERPOWER_SCRIPT=$MEERPOWER_DIR"/allLband/galaxy_cross_mod.py"
+    export DATA_DIR="/data/"
+
+%files
+    meerpower-uksrc /opt/meerpower
+    azimuth-im/micromamba.sh /etc/profile.d/micromamba.sh
+
+%post
+    env_yaml="/opt/meerpower/environment_gridimp.yml"
+    /usr/bin/micromamba create --yes --quiet --file $env_yaml 
+    /usr/bin/micromamba clean --all --yes
+    echo ". /etc/profile.d/micromamba.sh" >> /etc/bash.bashrc
+    echo "micromamba activate $(head -n 1 $env_yaml | cut -f 2 -d ' ')" >> /etc/bash.bashrc
+
+%runscript
+    PYTHON="/opt/conda/envs/gridimp/bin/python"
+    echo "python: $PYTHON"
+
+    echo "Making local output directory $(pwd)/output"
+    mkdir -p output
+    echo "Files in $DATA_DIR: $(ls -1 $DATA_DIR | wc -l)"
+    CLA="--meerpower-path $MEERPOWER_DIR $@"
+    echo "Executing command:"
+    echo "$PYTHON $MEERPOWER_SCRIPT $CLA"
+    $PYTHON $MEERPOWER_SCRIPT $CLA
