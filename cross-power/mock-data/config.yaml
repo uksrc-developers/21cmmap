@@ -1,4 +1,4 @@
-meerpower_path: ./meerpower/
+meerpower_path: ./meerpower-uksrc/
 survey: '2021'
 filepath_HI: ./data/Tsky.fits
 mockfilepath_HI: ./data/Tsky_mock

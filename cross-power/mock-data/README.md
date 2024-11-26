@@ -49,11 +49,13 @@ It is assumed that all subsequent steps are conducted from within this directory
 
 ### Clone meerpower
 
-The MeerKLASS cross-correlation power spectrum code is stored on GitHub at [meerpower](https://github.com/meerklass/meerpower).  Please clone the `meerpower` repository via e.g.
+The MeerKLASS cross-correlation power spectrum code used by UKSRC is stored on GitHub at [meerpower-uksrc](https://github.com/jburba/meerpower-uksrc).  Please clone the `meerpower-uksrc` repository via e.g.
 ```
-git clone https://github.com/meerklass/meerpower
+git clone https://github.com/jburba/meerpower-uksrc.git
 ```
 It is assumed that this repo will be cloned into the current working directory.  If you clone this repo somewhere else, the configuration yaml, `config.yaml`, will need to be modified accordingly.  Please see the section on _Running the analysis_ below for more details.
+
+Please note that `meerpower-uksrc` is a fork of the original MeerKLASS code also available on GitHub at [meerklass/meerpower](https://github.com/meerklass/meerpower).  The `meerpower-uksrc` has made no modifications to the underlying code, only the command line interface to better suit UKSRC needs.  All credit is due to the original authors of the original [`meerpower`](https://github.com/meerklass/meerpower) repo.
 
 ### Build a Python environment
 
