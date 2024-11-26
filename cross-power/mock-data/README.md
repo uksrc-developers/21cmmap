@@ -107,8 +107,6 @@ The analysis will produce a directory `output/` in the current working directory
 | `Pk_gHI_all.npy` | (Nmocks, Nkbins) | Cross-correlation power spectra for each mock radio image |
 | `Pk_gHI_all.pdf` | N/a | Plot of the cross-correlation power spectrum if `Nmocks == 1` or the sample mean and 95% confidence interval if `Nmocks > 1` |
 
-A reference plot has been provided in this directory which can be used to verify your results in the case of `Nmocks == 500`.
-
 ### A note regarding the outputs
 
 Because the mock radio images are random realizations of a log-normal density field (please see section 3 of [MeerKLASS Collaboration 2024](https://arxiv.org/abs/2407.21626) for more details), we do not expect any correlation with the galaxy positions in the GAMA catalog.  We therefore expect the cross-correlation power spectrum to be, on average, zero.  This analysis is thus a null test which verifies that no spurious correlation is introduced by steps in the analysis.  Note, however, that for 1 or a small number of `Nmocks`, it might be the case that the sample means and/or the confidence intervals are inconsistent with zero because we are dealing with a small sample size.
