@@ -59,6 +59,7 @@ parser.add_argument(
 parser.add_argument(
     "--Nmocks",
     type=int,
+    default=1,
     help="Number of mock files to loop over for calculating uncertainties."
 )
 parser.add_argument(
