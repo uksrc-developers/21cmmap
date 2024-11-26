@@ -36,24 +36,19 @@ If you wish to use an existing package manager such as [`conda`](https://docs.co
 
 ### meerpower
 
-The MeerKLASS cross-correlation power spectrum code used by UKSRC is stored on GitHub at [meerpower-uksrc](https://github.com/jburba/meerpower-uksrc).  Please clone the `meerpower-uksrc` repository via e.g.
+The MeerKLASS cross-correlation power spectrum code is stored on GitHub at [meerpower](https://github.com/meerklass/meerpower).  Please clone the `meerpower` repository via e.g.
 ```
-git clone https://github.com/jburba/meerpower-uksrc.git
+git clone https://github.com/meerklass/meerpower
 ```
-If you wish to clone the repository somewhere other than the current working directory, you can do so by appending the path to the desired installation location to the end of the above command, e.g.
-```
-git clone https://github.com/jburba/meerpower-uksrc.git /new/path/to/meerpower-uksrc
-```
-
-Please note that `meerpower-uksrc` is a fork of the original MeerKLASS code also available on GitHub at [meerklass/meerpower](https://github.com/meerklass/meerpower).  The `meerpower-uksrc` has made no modifications to the underlying code, only the command line interface to better suit UKSRC needs.  All credit is due to the original authors of the original [`meerpower`](https://github.com/meerklass/meerpower) repo.
+It is assumed that this repo will be cloned into the current working directory.  If you clone this repo somewhere else, the configuration yaml, `config.yaml`, will need to be modified accordingly.  Please see the section on _Running the analysis_ below for more details.
 
 ### Python environment
 
-To build the required python environment, we will use the Python environment yaml provided in the `meerpower-uksrc` repo, `meerpower-uksrc/environment_gridimp.yml`.  The Python environment can be created using this yaml file and `mamba` via
+To build the required python environment, we will use the Python environment yaml provided in this repo, `env.yaml`.  The Python environment can be created using this yaml file and `mamba` via
 ```
-mamba env create -f /path/to/meerpower-uksrc/environment_gridimp.yml
+mamba env create -f env.yaml
 ```
-replacing `/path/to/meerpower-uksrc` with the path to the cloned `meerpower-uksrc` repo.  Recall that, if using `conda`, you can directly replace `mamba` with `conda` in the above example.  Building the environment with `conda` might take longer, however.
+Recall that, if using `conda`, you can directly replace `mamba` with `conda` in the above example.  Building the environment with `conda` might take longer, however.
 
 Once the Python environment is built, it can be activated via
 ```
@@ -69,16 +64,17 @@ Running the MeerKLASS cross-correlation power spectrum code requires a radio ima
 | ---- | ---- | ------------ |
 | Radio image | 304 MB | Tsky.fits |
 | Image pixel counts | 304 MB | Npix_count.fits |
-| Mock radio images |  | Tsky_mock*[0-9].npy |
+| Mock radio images | 9.2 GB total<br>19 MB each | Tsky_mock*[0-9].npy (500 files) |
 | GAMA data | 14 MB | GAMA.fits |
 
-For reference, there are 499 mock datasets for both radio images and GAMA catalogs.
 
 ## Running the analysis
 
-Running the cross-correlation power spectrum analysis can be done via the command line.  The command line interface for the code uses `jsonargparse`, a python package which allows for command line arguments to be passed via the command line directly or parsed via a yaml file.  A pre-configured yaml file has been provided `config.yaml` which assumes that the data have been downloaded to a folder called `data/` in the current working directory, i.e. the data are in `./data/`.  The only command line argument which can be modified is `--Nmocks`, or `Nmocks` in `config.yaml`.  The value of `Nmocks` determines the number of mock radio images to use in the analysis.  Setting `Nmocks` to 1 (default), will run the analysis using a single mock radio image and generate a plot and output files for the cross-correlation power spectrum from this single mock radio image.  Setting `Nmocks` to a value greater than 1 will run the analysis multiple times using `Nmocks` mock radio images and plot the 95% confidence interval of the recovered cross-correlation power spectra across all power spectra.  The maximum value of `Nmocks` is 500, the number of mock radio images in the google drive.
+Running the cross-correlation power spectrum analysis can be done via the command line.  The command line interface for the code uses `jsonargparse`, a python package which allows for command line arguments to be passed via the command line directly or parsed via a yaml file.  A pre-configured yaml file has been provided `config.yaml` which assumes that the data have been downloaded to a folder called `data/` in the current working directory, i.e. the data are in `./data/`.
 
-Before running the analysis on the command line, please make sure that the paths to the downloaded data are correct in `config.yaml`.  For the purposes of this demonstration, it is assumed that the data have been downloaded and stored in the current working directory inside a directory called `data/`, i.e. in `./data/`.  If that is the case, no modification of `config.yaml` is required.
+The only command line argument which can be freely modified is `--Nmocks`, or `Nmocks` in `config.yaml`.  The value of `Nmocks` determines the number of mock radio images to use in the analysis.  Setting `Nmocks` to 1 (default), will run the analysis using a single mock radio image and generate a plot and output files for the cross-correlation power spectrum from this single mock radio image.  The analysis should run in approximately one minute with `Nmocks = 1`.  Setting `Nmocks` to a value greater than 1 will run the power spectrum calculation multiple times using `Nmocks` mock radio images and generate a plot of the sample mean and 95% confidence interval of the recovered cross-correlation power spectra.  The maximum value of `Nmocks` is 500, the number of mock radio images in the google drive.
+
+Before running the analysis on the command line, please make sure that the paths to the downloaded data are correct in `config.yaml`.  For the purposes of this demonstration, it is assumed that the data have been downloaded and stored in the current working directory inside a directory called `data/`, i.e. in `./data/`.  It is also assumed that the `meerpower` code has been cloned to the current working directory.  Please also modify the `config.yaml` accordingly if that is not the case.  If both data and `meerpower` have been placed in the current working directory, then no modification of `config.yaml` is required.
 
 Please also ensure that the desired python environment has been created and is active.  To activate the python environment provided with this demonstration, we need only run
 ```
@@ -99,7 +95,7 @@ Using `jsonargparse`, arguments following the specification of a configuration y
 
 ## Outputs
 
-The analysis will produce a directory `output/` in the current working directory with the outputs from the analysis. These outputs are as follows
+The analysis will produce a directory `output/` in the current working directory with the outputs from the analysis.  The location of these outputs can be changed via the `--out-dir` command line argument or via `out_dir` in `config.yaml`. The outputs files are as follows
 
 | File | Shape | Description |
 | ---- | ----- | ----------- |
@@ -109,7 +105,7 @@ The analysis will produce a directory `output/` in the current working directory
 
 ### A note regarding the outputs
 
-Because the mock radio images are random realizations of a log-normal density field (please see section 3 of [MeerKLASS Collaboration 2024](https://arxiv.org/abs/2407.21626) for more details), we do not expect any correlation with the galaxy positions in the GAMA catalog.  We therefore expect the cross-correlation power spectrum to be, on average, zero.  This analysis is thus a null test which verifies that no spurious correlation is introduced by steps in the analysis.  Note, however, that for 1 or a small number of `Nmocks`, it might be the case that the sample means and/or the confidence intervals are inconsistent with zero because we are dealing with a small sample size.
+Because the mock radio images are random realizations of a log-normal density field (please see section 3 of [MeerKLASS Collaboration 2024](https://arxiv.org/abs/2407.21626) for more details), we do not expect any correlation with the galaxy positions in the GAMA catalog.  **We therefore expect the cross-correlation power spectrum to be, on average, zero.**  This analysis is thus a null test which verifies that no spurious correlation is introduced by steps in the analysis.  Note, however, that for 1 or a small number of `Nmocks`, it might be the case that the sample means and/or the confidence intervals are inconsistent with zero because we are dealing with a small sample size.
 
 ## UKSRC related links and information
 
