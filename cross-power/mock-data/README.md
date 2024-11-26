@@ -58,7 +58,9 @@ mamba activate gridimp
 
 ## Input data
 
-Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 622 MB in size and currently hosted on [google drive](https://drive.google.com/drive/folders/17Y_Crphch_l3Q9kkUibmKa1CLIyWgcmW?usp=sharing).  Please download these data to your desired location on your machine.  The descriptions for each of the data files are as follows:
+Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 622 MB in size and currently hosted on [google drive](https://drive.google.com/drive/folders/17Y_Crphch_l3Q9kkUibmKa1CLIyWgcmW?usp=sharing).  Please download these data to your desired location on your machine.  It is assumed that these data will be downloaded to the current working directory in a subdirectory called `data/`.  If the data have been downloaded elsewhere, the configuration yaml, `config.yaml`, will need to be updated accordingly.  Please see the section on _Running the analysis_ below for more details.
+
+The descriptions for each of the data files are as follows:
 
 | Item | Size | File name(s) |
 | ---- | ---- | ------------ |
