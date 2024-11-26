@@ -138,6 +138,7 @@ def RunPipeline(
     '''
     if not isinstance(out_dir, Path):
         out_dir = Path(out_dir)
+    out_dir.mkdir(exist_ok=True, parents=True)
 
     # Load data and run some pre-processing steps:
     if survey=='2019':
