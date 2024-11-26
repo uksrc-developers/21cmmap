@@ -18,23 +18,36 @@ The files contained in this repo are as follows
 Please note that the code in this repo currently only supports an analysis of mock L-band [MeerKLASS](https://github.com/meerklass) and [GAMA](https://www.gama-survey.org/) galaxy catalog data.
 
 
-## Software dependencies
+## Software dependencies and setup
 
-There are three software dependencies required to run the code in this repo:
+There are four requirements to meet before running the code in this repo:
 
-1. Python
-2. MeerKLASS cross-correlation power spectrum code (`meerpower`)
-3. Python environment
+#. Install Python
+#. Clone this repo (`21cmmap`)
+#. Clone the MeerKLASS cross-correlation power spectrum code (`meerpower`)
+#. Build a Python environment
 
 The following two subsections contain all relevant information on installing these dependencies.
 
-### Python
+### Install Python
 
 Running this code requires Python and the ability to build a Python environment.  The suggested approach to building this environment is to install [`miniforge`](https://github.com/conda-forge/miniforge) which, in turn, installs `mamba`.  `mamba` is a package manager which is a drop-in replacement for `conda` but with a much faster and more robust dependency solver.  To install `miniforge`, please see the README on the [`miniforge` GitHub](https://github.com/conda-forge/miniforge) and the section on [installation](https://github.com/conda-forge/miniforge?tab=readme-ov-file#install).  As of the time of this writing, the installation is quite light weight and only requires copy/pasting two lines for execution on the command line.  There are instructions for both Unix-like and Windows based systems.  Please note that you may need to restart your terminal for the installation to complete and `mamba` to be initialized.
 
 If you wish to use an existing package manager such as [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html), you can do so by replacing all instances of `mamba` with `conda` in subsequent commands.
 
-### meerpower
+### Clone this repo
+
+This repo can be cloned via
+```
+git clone https://github.com/uksrc-developers/21cmmap.git
+```
+Once cloned, navigate to this directory via
+```
+cd 21cmmap/cross-power/mock-data/
+```
+It is assumed that all subsequent steps are conducted from within this directory.
+
+### Clone meerpower
 
 The MeerKLASS cross-correlation power spectrum code is stored on GitHub at [meerpower](https://github.com/meerklass/meerpower).  Please clone the `meerpower` repository via e.g.
 ```
@@ -42,7 +55,7 @@ git clone https://github.com/meerklass/meerpower
 ```
 It is assumed that this repo will be cloned into the current working directory.  If you clone this repo somewhere else, the configuration yaml, `config.yaml`, will need to be modified accordingly.  Please see the section on _Running the analysis_ below for more details.
 
-### Python environment
+### Build a Python environment
 
 To build the required python environment, we will use the Python environment yaml provided in this repo, `env.yaml`.  The Python environment can be created using this yaml file and `mamba` via
 ```
