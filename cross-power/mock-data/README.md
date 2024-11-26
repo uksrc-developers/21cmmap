@@ -22,10 +22,10 @@ Please note that the code in this repo currently only supports an analysis of mo
 
 There are four requirements to meet before running the code in this repo:
 
-#. Install Python
-#. Clone this repo (`21cmmap`)
-#. Clone the MeerKLASS cross-correlation power spectrum code (`meerpower`)
-#. Build a Python environment
+1. Install Python
+2. Clone this repo (`21cmmap`)
+3. Clone the MeerKLASS cross-correlation power spectrum code (`meerpower`)
+4. Build a Python environment
 
 The following two subsections contain all relevant information on installing these dependencies.
 
