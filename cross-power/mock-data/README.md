@@ -1,4 +1,4 @@
-# Cross-Power Spectrum Estimation
+# Cross-Power Spectrum Estimation Using Mock Data
 
 This directory contains information and scripts pertaining to the cross-correlation power spectrum estimation analysis using mock data.
 
