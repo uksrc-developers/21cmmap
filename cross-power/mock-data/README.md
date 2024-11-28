@@ -20,12 +20,13 @@ Please note that the code in this repo currently only supports an analysis of mo
 
 ## Software dependencies and setup
 
-There are four requirements to meet before running the code in this repo:
+There are five requirements to meet before running the code in this repo:
 
 1. Install Python
 2. Clone this repo (`21cmmap`)
 3. Clone the MeerKLASS cross-correlation power spectrum code (`meerpower`)
 4. Build a Python environment
+5. Download the data
 
 The following two subsections contain all relevant information on installing these dependencies.
 
@@ -70,10 +71,24 @@ Once the Python environment is built, it can be activated via
 mamba activate gridimp
 ```
 
+### Download the data
 
-## Input data
+Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 10 GB in total.  A tarball of the data (2.6 GB) is hosted on [google drive](https://drive.google.com/file/d/13PmC3xjOIN_VmeKet2Rc_yOiU_v8F9SI/view?usp=drive_link) and can be downloaded on the command line via
+```
+gdown https://drive.google.com/uc?id=13PmC3xjOIN_VmeKet2Rc_yOiU_v8F9SI
+```
+Note that the `gdown` package is already installed in the `gridimp` environment as part of the previous step building the python environment.
 
-Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 622 MB in size and currently hosted on [google drive](https://drive.google.com/drive/folders/17Y_Crphch_l3Q9kkUibmKa1CLIyWgcmW?usp=sharing).  Please download these data to your desired location on your machine.  It is assumed that these data will be downloaded to the current working directory in a subdirectory called `data/`.  If the data have been downloaded elsewhere, the configuration yaml, `config.yaml`, will need to be updated accordingly.  Please see the section on _Running the analysis_ below for more details.
+To untar this file, first create a `data/` directory in the current working directory via
+```
+mkdir data
+```
+Then execute the following command
+```
+tar -xzvf data.tar.gz -C data/
+```
+
+If you choose to download the data to a location other than `./data/`, the configuration yaml, `config.yaml`, will need to be updated accordingly.  Please see the section on _Running the analysis_ below for more details.
 
 The descriptions for each of the data files are as follows:
 
@@ -81,7 +96,7 @@ The descriptions for each of the data files are as follows:
 | ---- | ---- | ------------ |
 | Radio image | 304 MB | Tsky.fits |
 | Image pixel counts | 304 MB | Npix_count.fits |
-| Mock radio images | 9.2 GB total<br>19 MB each | Tsky_mock_*[0-9].npy (500 files) |
+| Mock radio images | 9.2 GB total<br>19 MB each | Tsky_mock*[0-9].npy (500 files) |
 | GAMA data | 14 MB | GAMA.fits |
 
 In total, the data are ~10 GB in size.
