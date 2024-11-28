@@ -1,8 +1,8 @@
 meerpower_path: ./meerpower-uksrc/
 survey: '2021'
-filepath_HI: ./data/Tsky.fits
-mockfilepath_HI: ./data/Tsky_mock
+filepath_HI: ./mock-data/Tsky.fits
+mockfilepath_HI: ./mock-data/Tsky_mock
 gal_cat: gama
-filepath_g: ./data/GAMA.fits
+filepath_g: ./mock-data/GAMA.fits
 tukey_alpha: 0.8
 out_dir: ./output/

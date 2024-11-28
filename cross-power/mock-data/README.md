@@ -73,22 +73,16 @@ mamba activate gridimp
 
 ### Download the data
 
-Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 10 GB in total.  A tarball of the data (2.6 GB) is hosted on [google drive](https://drive.google.com/file/d/13PmC3xjOIN_VmeKet2Rc_yOiU_v8F9SI/view?usp=drive_link) and can be downloaded on the command line via
+Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 10 GB in total.  A tarball of the data (2.6 GB) can be downloaded via e.g.
 ```
-gdown https://drive.google.com/uc?id=13PmC3xjOIN_VmeKet2Rc_yOiU_v8F9SI
-```
-Note that the `gdown` package is already installed in the `gridimp` environment as part of the previous step building the python environment.
-
-To untar this file, first create a `data/` directory in the current working directory via
-```
-mkdir data
-```
-Then execute the following command
-```
-tar -xzvf data.tar.gz -C data/
+wget https://lofar-surveys.org/public/uksrc-test-data/meerkat_simulated_data.tar
 ```
 
-If you choose to download the data to a location other than `./data/`, the configuration yaml, `config.yaml`, will need to be updated accordingly.  Please see the section on _Running the analysis_ below for more details.
+To untar this file, execute the following command
+```
+tar -xvf meerkat_simulated_data.tar
+```
+The data will be extracted into a directory called `mock-data/` in the current working directory.  If you choose to download the data to a location other than `./mock-data/`, the configuration yaml, `config.yaml`, will need to be updated accordingly.  Please see the section on _Running the analysis_ below for more details.
 
 The descriptions for each of the data files are as follows:
 
