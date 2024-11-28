@@ -81,7 +81,7 @@ The descriptions for each of the data files are as follows:
 | ---- | ---- | ------------ |
 | Radio image | 304 MB | Tsky.fits |
 | Image pixel counts | 304 MB | Npix_count.fits |
-| Mock radio images | 9.2 GB total<br>19 MB each | Tsky_mock*[0-9].npy (500 files) |
+| Mock radio images | 9.2 GB total<br>19 MB each | Tsky_mock_*[0-9].npy (500 files) |
 | GAMA data | 14 MB | GAMA.fits |
 
 In total, the data are ~10 GB in size.
