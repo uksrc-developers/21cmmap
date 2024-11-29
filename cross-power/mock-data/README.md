@@ -73,7 +73,7 @@ mamba activate gridimp
 
 ### Download the data
 
-Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 10 GB in total.  A tarball of the data (2.6 GB) can be downloaded via e.g.
+Running the MeerKLASS cross-correlation power spectrum code requires a radio image, the pixel counts for each pixel in the image, a galaxy catalog to cross-correlate with, mock radio images, and mock galaxy catalog data.  For this analysis, we will be analyzing mock radio image data and the Galaxy and Mass Assembly ([GAMA](https://www.gama-survey.org/)) galaxy catalog.  These data are 10 GB in total.  A tarball of the data can be downloaded via e.g.
 ```
 wget https://lofar-surveys.org/public/uksrc-test-data/meerkat_simulated_data.tar
 ```
@@ -97,11 +97,11 @@ In total, the data are ~10 GB in size.
 
 ## Running the analysis
 
-Running the cross-correlation power spectrum analysis can be done via the command line.  The command line interface for the code uses `jsonargparse`, a python package which allows for command line arguments to be passed via the command line directly or parsed via a yaml file.  A pre-configured yaml file has been provided `config.yaml` which assumes that the data have been downloaded to a folder called `data/` in the current working directory, i.e. the data are in `./data/`.
+Running the cross-correlation power spectrum analysis can be done via the command line.  The command line interface for the code uses `jsonargparse`, a python package which allows for command line arguments to be passed via the command line directly or parsed via a yaml file.  A pre-configured yaml file has been provided `config.yaml` which assumes that the data have been downloaded to a folder called `mock-data/` in the current working directory, i.e. the data are in `./mock-data/`.
 
 The only command line argument which can be freely modified is `--Nmocks`, or `Nmocks` in `config.yaml`.  The value of `Nmocks` determines the number of mock radio images to use in the analysis.  Setting `Nmocks` to 1 (default), will run the analysis using a single mock radio image and generate a plot and output files for the cross-correlation power spectrum from this single mock radio image.  The analysis should run in approximately one minute with `Nmocks = 1`.  Setting `Nmocks` to a value greater than 1 will run the power spectrum calculation multiple times using `Nmocks` mock radio images and generate a plot of the sample mean and 95% confidence interval of the recovered cross-correlation power spectra.  The maximum value of `Nmocks` is 500, the number of mock radio images in the google drive.
 
-Before running the analysis on the command line, please make sure that the paths to the downloaded data are correct in `config.yaml`.  For the purposes of this demonstration, it is assumed that the data have been downloaded and stored in the current working directory inside a directory called `data/`, i.e. in `./data/`.  It is also assumed that the `meerpower` code has been cloned to the current working directory.  Please also modify the `config.yaml` accordingly if that is not the case.  If both data and `meerpower` have been placed in the current working directory, then no modification of `config.yaml` is required.
+Before running the analysis on the command line, please make sure that the paths to the downloaded data are correct in `config.yaml`.  For the purposes of this demonstration, it is assumed that the data have been downloaded and stored in the current working directory inside a directory called `mock-data/`, i.e. in `./mock-data/`.  It is also assumed that the `meerpower` code has been cloned to the current working directory.  Please also modify the `config.yaml` accordingly if that is not the case.  If both data and `meerpower` have been placed in the current working directory, then no modification of `config.yaml` is required.
 
 Please also ensure that the desired python environment has been created and is active.  To activate the python environment provided with this demonstration, we need only run
 ```
